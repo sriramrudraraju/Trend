@@ -1,0 +1,22 @@
+version: "3.9"
+services:
+  client:
+    build:
+      dockerfile: Dockerfile
+      context: ./client
+    volumes:
+      - /app/node_modules
+      - ./client:/app
+    ports:
+      - "5040:3000"
+  api:
+    build:
+      dockerfile: Dockerfile
+      context: "./server"
+    volumes:
+      - /app/node_modules
+      - ./server:/app
+    ports:
+      - "5050:8000"
+volumes:
+  logvolume01: {}
