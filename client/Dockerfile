@@ -11,4 +11,4 @@ RUN npm install
 RUN npm install -g local-web-server
 # Build react prod build
 RUN npm run build
-CMD ws --spa index.html --port 4040 --directory ./build
+CMD ws --spa index.html --port 3000 --directory ./build
