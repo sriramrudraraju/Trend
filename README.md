@@ -2,6 +2,16 @@
 
 [Wiki](https://github.com/sriramrudraraju/Trend/wiki) explains on how this template is created
 
+## Root
+
+### Development
+* `yarn install` to install all dependencies.
+* `yarn start` to start client<small>`(port: 3000)`</small> and server<small>`(port: 8000)`</small> 
+
+### Docker
+* `docker-compose up -d` build and run docker images.
+
+
 ## Client
 
 ### Development
