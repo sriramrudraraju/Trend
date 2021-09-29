@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   BrowserRouter as Router,
   Switch,
   Route,
   Link
 } from "react-router-dom";
+import axios, { AxiosRequestConfig } from "axios";
 import './App.css';
 
 function App() {
@@ -46,7 +47,17 @@ function Home() {
 }
 
 function Users() {
-  return <h2>Users</h2>;
+  const [user, setUser] = useState("");
+
+  useEffect(() => {
+    const config: AxiosRequestConfig = {
+      headers: { 'Content-Type': 'application/json'}
+    }
+    axios.get(`${process.env.REACT_APP_SERVER_BASE_URL}/users`, config)
+      .then((resp: any) => { setUser(resp.data.user) })
+      .catch(() => { setUser("Error") })
+  }, []);
+  return <h2>User: {user}</h2>;
 }
 
 export default App;

@@ -7,10 +7,15 @@ var express_1 = __importDefault(require("express"));
 var http_errors_1 = __importDefault(require("http-errors"));
 var cookie_parser_1 = __importDefault(require("cookie-parser"));
 var morgan_1 = __importDefault(require("morgan"));
+var cors_1 = __importDefault(require("cors"));
 var index_1 = require("./routes/index");
 var users_1 = require("./routes/users");
 var app = (0, express_1.default)();
 app.use((0, morgan_1.default)("dev"));
+app.use((0, cors_1.default)({
+    origin: "*",
+    methods: "GET,HEAD,PUT,PATCH,POST,DELETE"
+}));
 app.use(express_1.default.json());
 app.use(express_1.default.urlencoded({ extended: false }));
 app.use((0, cookie_parser_1.default)());
