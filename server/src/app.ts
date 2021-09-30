@@ -18,8 +18,9 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 
-app.use("/", indexRouter);
-app.use("/users", usersRouter);
+const baseUrl = '/api'
+app.use(`${baseUrl}/`, indexRouter);
+app.use(`${baseUrl}/users`, usersRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
@@ -39,7 +40,7 @@ app.use(function (
 
   // render the error page
   res.status(err.status || 500);
-  res.render("error");
+  res.send("error");
 });
 
 export default app;

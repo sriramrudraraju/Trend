@@ -53,7 +53,7 @@ function Users() {
     const config: AxiosRequestConfig = {
       headers: { 'Content-Type': 'application/json'}
     }
-    axios.get(`${process.env.REACT_APP_SERVER_BASE_URL}/users`, config)
+    axios.get(`api/users`, config)
       .then((resp: any) => { setUser(resp.data.user) })
       .catch(() => { setUser("Error") })
   }, []);

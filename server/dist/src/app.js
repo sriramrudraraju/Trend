@@ -19,8 +19,9 @@ app.use((0, cors_1.default)({
 app.use(express_1.default.json());
 app.use(express_1.default.urlencoded({ extended: false }));
 app.use((0, cookie_parser_1.default)());
-app.use("/", index_1.indexRouter);
-app.use("/users", users_1.usersRouter);
+var baseUrl = '/api';
+app.use(baseUrl + "/", index_1.indexRouter);
+app.use(baseUrl + "/users", users_1.usersRouter);
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
     next((0, http_errors_1.default)(404));
@@ -32,7 +33,7 @@ app.use(function (err, req, res, next) {
     res.locals.error = req.app.get("env") === "development" ? err : {};
     // render the error page
     res.status(err.status || 500);
-    res.render("error");
+    res.send("error");
 });
 exports.default = app;
 //# sourceMappingURL=app.js.map
