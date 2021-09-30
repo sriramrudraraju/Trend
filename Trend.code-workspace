@@ -11,6 +11,10 @@
     {
       "name": "Server",
       "path": "server"
+    },
+    {
+      "name": "Nginx",
+      "path": "nginx"
     }
   ]
 }
