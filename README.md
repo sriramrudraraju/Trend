@@ -11,6 +11,7 @@
 ### Docker
 * `docker-compose build` to build images.
 * `docker-compose up -d` run docker images.
+* Client can be acessed at `http://localhost:8080`
 
 ## Client
 
