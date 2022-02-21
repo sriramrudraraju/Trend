@@ -1,5 +1,7 @@
-# Node base image
-FROM node:alpine
+# Linux base image
+FROM alpine
+# Install Node, npm
+RUN apk add --update npm
 # WORKDIR /server
 WORKDIR /server
 # Copy everything
